@@ -1,32 +1,23 @@
-import { useEffect } from 'react';
+import { useState } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import AppRoutes from './components/AppRoutes';
+import { AuthContext } from './components/Context/Context';
 import Navbar from './components/Navbar';
+import Footer from './components/Navbar/Footer/Footer';
+import { IFormInput } from './components/Type/Type';
 
 function App() {
+  const [isType, setIsType] = useState<IFormInput[]>([]);
+  const [isArray, setisArray] = useState<IFormInput[]>([]);
   return (
     <div className="app">
-      <BrowserRouter>
-        <Navbar />
-        <AppRoutes />
-        <footer>
-          <div className="footer__content">
-            <div className="footer__logo-naim">
-              <a
-                className="footer__logo-naim-link"
-                target="_blank"
-                href="https://github.com/R5G1"
-                rel="noreferrer"
-              >
-                App developer: R5G1
-              </a>
-            </div>
-            <div className="footer__logo-data">
-              <p>2022</p>
-            </div>
-          </div>
-        </footer>
-      </BrowserRouter>
+      <AuthContext.Provider value={{ isType, setIsType, isArray, setisArray }}>
+        <BrowserRouter>
+          <Navbar />
+          <AppRoutes />
+          <Footer />
+        </BrowserRouter>
+      </AuthContext.Provider>
     </div>
   );
 }

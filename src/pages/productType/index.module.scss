@@ -1,6 +1,26 @@
-.main {
-    min-height: calc(100vh - 100px);
+.conteiner {
+    background: #E5E5E5;
+}
 
+.productType {
+    min-height: calc(100vh - 100px);
+    max-width: 1130px;
+    margin: 0 auto;
+    background: rgb(255, 255, 255);
+    padding: 0px 10px;
+    height: 100%;
+
+}
+
+.productTypeTitle {
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
+    padding: 20px 0px;
+}
+
+.productTypeForm {
+    padding-top: 50px;
 }
 
 .mainConteiner {
@@ -31,7 +51,7 @@
     margin: 0 auto;
 }
 
-.mainConentName{
+.mainConentName {
     padding: 5px 0px;
     font-weight: bold;
 }
