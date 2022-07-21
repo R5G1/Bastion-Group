@@ -5,25 +5,11 @@ import { IFormInput } from '../../components/Type/Type';
 import Button from '../../components/UI/button/Button';
 import style from '../products/index.module.scss';
 import ProductsSelect from './productsComponents/ProductsSelect';
-// enum GostEnum {
-//   gost1 = 'ГОСТ 14911-82',
-//   gost2 = 'ОСТ 36-146-88',
-//   gost3 = 'НТС 65-06',
-//   gost4 = 'ОСТ 36-146-88',
-//   gost5 = 'НТС 65-06',
-// }
-function Products() {
-  // interface IFormInput {
-  //   id?: string;
-  //   name?: string;
-  //   price?: string;
-  //   gost?: GostEnum;
-  // }
 
+function Products() {
   const { isType, setIsType, isArray, setisArray } = useContext(AuthContext);
   const { register, handleSubmit } = useForm();
   const [type, setType] = useState<IFormInput[]>([]);
-  console.log(isArray);
 
   const onSubmit: SubmitHandler<IFormInput> = (data: IFormInput, event: any) => {
     setisArray([...isArray, data]);
@@ -62,12 +48,22 @@ function Products() {
             {...register('price')}
             required
           ></input>
+          <input
+            style={{ display: 'none' }}
+            min={0}
+            className="input"
+            placeholder="Цена"
+            type="number"
+            value={0}
+            {...register('priceNumber')}
+            required
+          ></input>
           <select className="input" {...register('gost')} required>
-            <option value="gost1">ГОСТ 14911-82</option>
-            <option value="gost2">ОСТ 36-146-88</option>
-            <option value="gost3">НТС 65-06</option>
-            <option value="gost4">ОСТ 36-146-88</option>
-            <option value="gost5">НТС 65-06</option>
+            <option value="ГОСТ 14911-82">ГОСТ 14911-82</option>
+            <option value="ОСТ 36-146-88">ОСТ 36-146-88</option>
+            <option value="НТС 65-06">НТС 65-06</option>
+            <option value="ОСТ 36-146-88">ОСТ 36-146-88</option>
+            <option value="НТС 65-06">НТС 65-06</option>
           </select>
           <Button type="submit">Submit</Button>
         </form>

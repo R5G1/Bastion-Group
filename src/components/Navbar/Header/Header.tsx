@@ -1,4 +1,13 @@
 import { url } from 'inspector';
+import {
+  FC,
+  JSXElementConstructor,
+  ReactElement,
+  ReactFragment,
+  useContext,
+  useState,
+} from 'react';
+import { AuthContext } from '../../Context/Context';
 import styles from '../Header/Header.module.scss';
 import imgLog from '../Header/images/1.svg';
 import imgCatalog from '../Header/images/2.svg';
@@ -6,7 +15,26 @@ import imgInput from '../Header/images/3.svg';
 import imgInput2 from '../Header/images/31.svg';
 import imgSelect from '../Header/images/4.svg';
 import imgBasket from '../Header/images/5.svg';
-const Header = () => {
+interface IFormInput {
+  id?: string;
+  name?: string;
+  price?: string;
+  priceNumber: number;
+  type?: string;
+  gost?: string;
+}
+const Header: FC = () => {
+  const { isArray, setisArray } = useContext(AuthContext);
+  function Basket() {
+    let number = 0;
+    isArray.map((item: IFormInput) => {
+      if (item.priceNumber > 0) {
+        number += 1;
+        return number;
+      }
+    });
+    return number > 0 ? <div className={styles.headerBasketCount}>{number}</div> : <div></div>;
+  }
   return (
     <div className={styles.conteiner}>
       <div className={styles.headerConteiner}>
@@ -27,6 +55,7 @@ const Header = () => {
           <p>Избранное</p>
         </button>
         <button className={styles.headerBasket}>
+          <Basket />
           <img src={imgBasket} alt="" />
           <p>Корзина</p>
         </button>

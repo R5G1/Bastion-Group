@@ -4,7 +4,7 @@ import style from '../button/Button.module.scss';
 interface childrenProps {
   children?: React.ReactChild | React.ReactNode;
   type: 'button' | 'submit' | 'reset' | undefined;
-  onClick?: (e: any) => void;
+  onClick?: (e: unknown) => void;
 }
 
 const Button: FC<childrenProps> = ({ children, ...props }) => {

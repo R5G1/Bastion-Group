@@ -80,6 +80,21 @@
 
 .headerBasket {}
 
+.headerBasketCount {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 13px;
+    height: 13px;
+    font-weight: 600;
+    font-size: 8px;
+    color: rgb(255, 255, 255);
+    background: rgb(255, 0, 0);
+    border-radius: 50px;
+    margin-left: 30px;
+}
+
 .headerNavConteiner {
     height: 20px;
     background: #E5E5E5;

@@ -8,7 +8,56 @@ import { IFormInput } from './components/Type/Type';
 
 function App() {
   const [isType, setIsType] = useState<IFormInput[]>([]);
-  const [isArray, setisArray] = useState<IFormInput[]>([]);
+  const [isArray, setisArray] = useState<IFormInput[]>([
+    {
+      id: 'string',
+      name: 'string',
+      price: '0',
+      priceNumber: 0,
+      type: 'string',
+      gost: 'ГОСТ 14911-82',
+    },
+    {
+      id: 'string',
+      name: 'string',
+      price: '0',
+      priceNumber: 0,
+      type: 'string',
+      gost: 'ГОСТ 14911-82',
+    },
+    {
+      id: 'string',
+      name: 'string',
+      price: '0',
+      priceNumber: 0,
+      type: 'string',
+      gost: 'ОСТ 36-146-88',
+    },
+    {
+      id: 'string',
+      name: 'string',
+      price: '0',
+      priceNumber: 0,
+      type: 'string',
+      gost: 'ОСТ 36-146-88',
+    },
+    {
+      id: 'string',
+      name: 'string',
+      price: '0',
+      priceNumber: 0,
+      type: 'string',
+      gost: 'НТС 65-06',
+    },
+    {
+      id: 'string',
+      name: 'string',
+      price: '0',
+      priceNumber: 0,
+      type: 'string',
+      gost: 'НТС 65-06',
+    },
+  ]);
   return (
     <div className="app">
       <AuthContext.Provider value={{ isType, setIsType, isArray, setisArray }}>
