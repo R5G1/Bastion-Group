@@ -11,10 +11,9 @@ interface IFormInput {
   gost?: string;
 }
 
-function ProductsCard() {
+function ProductsCard({ arrayFiltr }: any): JSX.Element {
   const { isArray, setisArray } = useContext(AuthContext);
   const [count, setCount] = useState<number>(0);
-  console.log(isArray);
 
   function aadhit(array: string) {
     if (array.toLowerCase().includes('о')) {
@@ -45,8 +44,10 @@ function ProductsCard() {
     setisArray(newAray);
     setCount(0);
   }
-
-  const listItems = isArray.map((item: IFormInput, index: number) => (
+  const checkFiltr = () => {
+    return (arrayFiltr.length = 0 ? isArray : arrayFiltr);
+  };
+  const listItems = arrayFiltr.map((item: IFormInput, index: number) => (
     <div className={styles.productsCardContent} key={item.id + Math.random().toString()}>
       <div className={styles.productsCardAction}>
         {aadhit(item.name)}

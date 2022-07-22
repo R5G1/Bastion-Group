@@ -11,7 +11,7 @@ function App() {
   const [isArray, setisArray] = useState<IFormInput[]>([
     {
       id: 'string',
-      name: 'string',
+      name: 'аа',
       price: '0',
       priceNumber: 0,
       type: 'string',
@@ -19,7 +19,7 @@ function App() {
     },
     {
       id: 'string',
-      name: 'string',
+      name: 'аа',
       price: '0',
       priceNumber: 0,
       type: 'string',
@@ -27,7 +27,7 @@ function App() {
     },
     {
       id: 'string',
-      name: 'string',
+      name: 'оо',
       price: '0',
       priceNumber: 0,
       type: 'string',
@@ -35,7 +35,7 @@ function App() {
     },
     {
       id: 'string',
-      name: 'string',
+      name: 'оо',
       price: '0',
       priceNumber: 0,
       type: 'string',
@@ -43,7 +43,7 @@ function App() {
     },
     {
       id: 'string',
-      name: 'string',
+      name: 'аоhhffa',
       price: '0',
       priceNumber: 0,
       type: 'string',
@@ -51,7 +51,7 @@ function App() {
     },
     {
       id: 'string',
-      name: 'string',
+      name: 'fgghао',
       price: '0',
       priceNumber: 0,
       type: 'string',

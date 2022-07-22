@@ -1,18 +1,64 @@
+import { SetStateAction, useContext, useState } from 'react';
+import { AuthContext } from '../../../components/Context/Context';
+import { IFormInput } from '../../../components/Type/Type';
 import styles from '../homeComponents/style/HomeContentCard.module.scss';
 import ProductsCard from './HomeProductsCard';
-
+interface IarrayGost {
+  gost: string;
+  action: boolean;
+}
 function HomeContentCard() {
+  const { isArray, setisArray } = useContext(AuthContext);
+  const [arrayFiltr, setArrayFiltr] = useState<IFormInput[]>(isArray);
+  const [action, setAction] = useState(false);
+
+  const [arrayGost, setArrayGost] = useState<IarrayGost[]>([
+    { gost: 'ГОСТ 14911-82', action: false },
+    { gost: 'ОСТ 36-146-88', action: false },
+    { gost: 'НТС 65-06', action: false },
+  ]);
+
+  function ContentFiltr() {
+    const result = arrayGost.map((item: IarrayGost, index) => (
+      <button
+        key={Math.random().toString()}
+        className={styles.hCMGBtn}
+        onClick={() => changeGostAction(index)}
+        style={item.action ? { background: '#C93E33' } : { background: '#F9F9F9' }}
+      >
+        {item.gost}
+      </button>
+    ));
+    return <div className={styles.homeContentMenuGostConteiner}>{result}</div>;
+  }
+
+  function changeGostAction(number: number) {
+    const newAray = [...arrayGost];
+    newAray.forEach((item, index: number) => {
+      // if (number === index) {
+      //   item.action === false ? (item.action = true) : (item.action = false);
+      // }
+      if (number === index && item.action === false) {
+        item.action = true;
+      } else {
+        item.action = false;
+      }
+
+      if (number === index && item.action) {
+        setArrayFiltr(isArray.filter((array: IFormInput) => array.gost === item.gost));
+      }
+      if (number === index && item.action == false) {
+        setArrayFiltr(isArray);
+      }
+    });
+    setArrayGost(newAray);
+  }
+
   return (
     <div className={styles.conteiner}>
-      <div className={styles.homeContentMenuGostConteiner}>
-        <button className={styles.hCMGBtn}>ГОСТ 14911-82</button>
-        <button className={styles.hCMGBtn}>ОСТ 36-146-88</button>
-        <button className={styles.hCMGBtn}>НТС 65-06</button>
-        <button className={styles.hCMGBtn}>ОСТ 36-146-88</button>
-        <button className={styles.hCMGBtn}>НТС 65-06</button>
-      </div>
+      <ContentFiltr />
       <div className={styles.homeContentCardConteiner}>
-        <ProductsCard />
+        <ProductsCard arrayFiltr={arrayFiltr} />
       </div>
     </div>
   );
