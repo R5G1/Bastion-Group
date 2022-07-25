@@ -1,14 +1,10 @@
 import BasketContentForm from './BasketContentForm';
 import BasketCreateCard from './BasketCreateCard';
-import style from './style/BasketContent.modyle.scss';
-
+import style from './style/BasketContent.module.scss';
+import imgBtn from './style/images/1.svg';
 function BasketContentCard() {
   return (
     <div className={style.conteiner}>
-      <div className={style.basketTitle}>
-        <p></p>
-        <p>Заказ</p>
-      </div>
       <div className={style.basketContentConteiner}>
         <BasketCreateCard />
         <BasketContentForm />

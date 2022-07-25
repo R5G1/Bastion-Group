@@ -14,3 +14,11 @@ export interface isArray {
   type?: string;
   gost?: string;
 }
+export interface IbasketFormInput {
+  lastName?: string;
+  name?: string;
+  fatherName?: string;
+  tel?: number;
+  email?: string;
+  companyName?: string;
+}

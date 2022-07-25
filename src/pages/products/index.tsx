@@ -8,13 +8,21 @@ import ProductsSelect from '../../components/UI/productsComponents/ProductsSelec
 
 function Products() {
   const { isType, setIsType, isArray, setisArray } = useContext(AuthContext);
-  const { register, handleSubmit } = useForm();
+
+  const { register, handleSubmit, setValue } = useForm<IFormInput>();
   const [type, setType] = useState<IFormInput[]>([]);
+  const [id, setId] = useState<any>([]);
 
   const onSubmit: SubmitHandler<IFormInput> = (data: IFormInput, event: any) => {
     setisArray([...isArray, data]);
+    const newAray = [...isArray, data];
+    newAray.map((item) => {
+      if (item.id.length < 7) item.id = item.id + Date.now().toString();
+    });
+    setisArray(newAray);
     event.target.reset();
   };
+  console.log(isArray);
 
   return (
     <div className={style.conteiner}>
@@ -22,12 +30,12 @@ function Products() {
         <h3 className={style.productTitle}>Продукты</h3>
         <form className={style.productForm} action="get" onSubmit={handleSubmit(onSubmit)}>
           <input
-            min={0}
+            maxLength={6}
+            required
             className="input"
             placeholder="идентификатор id"
-            type="number"
-            {...register('id')}
-            required
+            type="text"
+            {...register(`id`)}
           ></input>
           <input
             className="input"
@@ -67,7 +75,7 @@ function Products() {
             <option value="ОСТ 36-146-88">ОСТ 36-146-88</option>
             <option value="НТС 65-06">НТС 65-06</option>
           </select>
-          <Button type="submit">Submit</Button>
+          <button type="submit">Submit</button>
         </form>
       </div>
       <div style={{ padding: '50px 0' }}></div>

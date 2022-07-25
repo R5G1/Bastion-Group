@@ -1,28 +1,55 @@
-.productsCardConteiner {
-
+.basketTitle {
+    border: 1px solid #E6E6E6;
     display: flex;
-    // justify-content: center;
-    // align-items: center;
-    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    max-width: 850px;
+    width: calc(100vW - 280px);
+    // width: 100%;
+    margin: 0 auto;
+}
 
+
+.basketTitleTextP {
+
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    padding-left: 20px;
+}
+
+.productsCardConteiner {}
+
+.conteiner {
+    overflow: auto;
+    display: flex;
+    flex-wrap: wrap;
+    min-height: calc(100vh - 100px);
+    max-height: 700px;
+    @media (max-width: 1150px) {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 }
 
 .productsCardContent {
 
     border: 1px solid #E6E6E6;
     min-height: 180px;
-    max-width: 830px;
+    max-width: 850px;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     background: #FFFFFF;
     padding: 15px;
-
     @media (max-width: 972px) {
         flex-wrap: wrap;
         justify-content: center;
     }
+
+
     transition: box-shadow 0.3s ease 0s;
 
     &:hover {
@@ -37,7 +64,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
 
 
     img {
@@ -50,7 +76,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
     flex-direction: column;
 
     P {
@@ -91,7 +116,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 100%;
 
     button {
         border: 1px solid #E6E6E6;
@@ -121,11 +145,11 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 100%;
     font-weight: 700;
     font-size: 18px;
     line-height: 18px;
     margin: 10px 10px;
+    
 }
 
 .productsCardHoverBtn {
@@ -133,7 +157,6 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 100%;
 
     button {
         background: rgba(0, 0, 0, 0);
@@ -145,9 +168,33 @@
         margin: 10px 0;
         color: #FFFFFF;
         margin: 10px 10px;
+
         img {
-            width: 18px;
-            height: 18px;
+            width: 28px;
+            height: 28px;
+            border: 6px solid rgba(0, 0, 0, 0);
         }
     }
+}
+
+.basketClearBtnConteiner {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    width: 100%;
+}
+
+.basketClearBtn {
+    background: rgba(0, 0, 0, 0);
+    background-position: 0 50%;
+    background-repeat: no-repeat;
+    background-size: 20px 15px;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    color: #C93E33;
+
+
+    max-width: 300px;
+    padding: 30px 10px 30px 25px;
 }

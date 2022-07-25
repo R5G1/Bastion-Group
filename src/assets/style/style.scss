@@ -51,9 +51,14 @@ code {
 
 }
 
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 .input {
     font-size: 16px;
-    border: 1px solid rgba(207, 206, 206, 0.356);
     border-bottom: 1px solid rgb(124, 124, 124);
     height: 50px;
     width: 100%;
@@ -65,7 +70,18 @@ code {
     transition: border 0.3s ease 0s;
 
     &:focus {
-        border-bottom: 1px solid #000;
+        border-bottom: 2px solid #020202;
+        outline: none;
+    }
+
+    &::placeholder {
+        transition: 0.5s;
+        color: #aaa;
+    }
+
+    &:focus::placeholder {
+        font-size: 10px;
+        transform: translateY(-16px);
     }
 }
 
