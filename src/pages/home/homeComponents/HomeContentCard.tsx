@@ -1,4 +1,4 @@
-import { SetStateAction, useContext, useState } from 'react';
+import { SetStateAction, useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../../components/Context/Context';
 import { IFormInput } from '../../../components/Type/Type';
 import styles from '../homeComponents/style/HomeContentCard.module.scss';
@@ -9,8 +9,8 @@ interface IarrayGost {
 }
 function HomeContentCard() {
   const { isArray, setisArray } = useContext(AuthContext);
+  const { isNewArray, setisNewArray } = useContext(AuthContext);
   const [arrayFiltr, setArrayFiltr] = useState<IFormInput[]>(isArray);
-  const [action, setAction] = useState(false);
 
   const [arrayGost, setArrayGost] = useState<IarrayGost[]>([
     { gost: 'ГОСТ 14911-82', action: false },
@@ -35,9 +35,6 @@ function HomeContentCard() {
   function changeGostAction(number: number) {
     const newAray = [...arrayGost];
     newAray.forEach((item, index: number) => {
-      // if (number === index) {
-      //   item.action === false ? (item.action = true) : (item.action = false);
-      // }
       if (number === index && item.action === false) {
         item.action = true;
       } else {
@@ -45,10 +42,10 @@ function HomeContentCard() {
       }
 
       if (number === index && item.action) {
-        setArrayFiltr(isArray.filter((array: IFormInput) => array.gost === item.gost));
+        setisNewArray(isArray.filter((array: IFormInput) => array.gost === item.gost));
       }
       if (number === index && item.action == false) {
-        setArrayFiltr(isArray);
+        setisNewArray(isArray);
       }
     });
     setArrayGost(newAray);
@@ -58,7 +55,7 @@ function HomeContentCard() {
     <div className={styles.conteiner}>
       <ContentFiltr />
       <div className={styles.homeContentCardConteiner}>
-        <ProductsCard arrayFiltr={arrayFiltr} />
+        <ProductsCard />
       </div>
     </div>
   );

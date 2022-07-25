@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import { AuthContext } from '../../../components/Context/Context';
-import { IFormInput } from '../../../components/Type/Type';
+import { AuthContext } from '../../Context/Context';
+import { IFormInput } from '../../Type/Type';
 
 function ProductsSelect() {
   const { isType, setIsType } = useContext(AuthContext);

@@ -1,6 +1,7 @@
 import styles from '../homeComponents/style/HomeContentFiltr.module.scss';
 import imgBtn from '../homeComponents/images/1.svg';
 import imgBtnSection from '../homeComponents//images/2.svg';
+import IndexInput from './HomeContentFiltrDetails/indexInput';
 function HomeContentFiltr(): JSX.Element {
   return (
     <div className={styles.homeContentMenuCategories}>
@@ -54,29 +55,7 @@ function HomeContentFiltr(): JSX.Element {
       <button className={styles.hCMCFilterBtnSection}>
         <img src={imgBtnSection} alt="" /> <p>Фильтры</p>
       </button>
-      <div className={styles.hCMCFilterFormConteiner}>
-        <button className={styles.hCMCFilterFormPriceBtn}>Цена, руб.</button>
-        <div className={styles.hCMCFilterFormInput}>
-          <p className={styles.hCMCFilterFormInputText}>
-            от <input type="text" />
-          </p>
-          <p className={styles.hCMCFilterFormInputText}>
-            до <input type="text" />
-          </p>
-        </div>
-        <div className={styles.hCMCFilterFormInputRange}>
-          <input type="range" />
-        </div>
-        <button className={styles.hCMCFilterFormTypeBtn}>Тип продукта</button>
-        <button className={styles.hCMCFilterFormBrandBtn}>Бренд</button>
-        <button className={styles.hCMCFilterFormChoiceBtn}>
-          <div></div> Выбор покупателей
-        </button>
-        <button className={styles.hCMCFilterFormChoiceABtn}>
-          <div></div> Лучшая цена
-        </button>
-        <button className={styles.hCMCFilterFormResetBtn}>Сбросить фильтры</button>
-      </div>
+      <IndexInput />
     </div>
   );
 }

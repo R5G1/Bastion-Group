@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../../components/Context/Context';
 import styles from '../homeComponents/style/HomeProductsCard.module.scss';
 import img from './images/6.png';
@@ -11,17 +11,22 @@ interface IFormInput {
   gost?: string;
 }
 
-function ProductsCard({ arrayFiltr }: any): JSX.Element {
+function ProductsCard(): JSX.Element {
   const { isArray, setisArray } = useContext(AuthContext);
+  const { isNewArray, setisNewArray } = useContext(AuthContext);
   const [count, setCount] = useState<number>(0);
 
   function aadhit(array: string) {
-    if (array.toLowerCase().includes('о')) {
+    const itemRu = array.toLowerCase().includes('о');
+    const itemEn = array.toLowerCase().includes('o');
+    if (itemRu || itemEn) {
       return <div className={styles.productsCardActionName}>хит</div>;
     }
   }
   function aadAction(array: string) {
-    if (array.toLowerCase().includes('а')) {
+    const itemRu = array.toLowerCase().includes('а');
+    const itemEn = array.toLowerCase().includes('a');
+    if (itemRu || itemEn) {
       return <div className={styles.productsCardActionName}>акция</div>;
     }
   }
@@ -44,10 +49,8 @@ function ProductsCard({ arrayFiltr }: any): JSX.Element {
     setisArray(newAray);
     setCount(0);
   }
-  const checkFiltr = () => {
-    return (arrayFiltr.length = 0 ? isArray : arrayFiltr);
-  };
-  const listItems = arrayFiltr.map((item: IFormInput, index: number) => (
+
+  const listItems = isNewArray.map((item: IFormInput, index: number) => (
     <div className={styles.productsCardContent} key={item.id + Math.random().toString()}>
       <div className={styles.productsCardAction}>
         {aadhit(item.name)}

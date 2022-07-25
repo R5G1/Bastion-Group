@@ -1,12 +1,5 @@
-import { url } from 'inspector';
-import {
-  FC,
-  JSXElementConstructor,
-  ReactElement,
-  ReactFragment,
-  useContext,
-  useState,
-} from 'react';
+import { FC, useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context/Context';
 import styles from '../Header/Header.module.scss';
 import imgLog from '../Header/images/1.svg';
@@ -29,8 +22,7 @@ const Header: FC = () => {
     let number = 0;
     isArray.map((item: IFormInput) => {
       if (item.priceNumber > 0) {
-        number += 1;
-        return number;
+        return (number += 1);
       }
     });
     return number > 0 ? <div className={styles.headerBasketCount}>{number}</div> : <div></div>;
@@ -54,11 +46,13 @@ const Header: FC = () => {
           <img src={imgSelect} alt="" />
           <p>Избранное</p>
         </button>
-        <button className={styles.headerBasket}>
-          <Basket />
-          <img src={imgBasket} alt="" />
-          <p>Корзина</p>
-        </button>
+        <Link to={'/basket'}>
+          <button className={styles.headerBasket}>
+            <Basket />
+            <img src={imgBasket} alt="" />
+            <p>Корзина</p>
+          </button>
+        </Link>
       </div>
       <div className={styles.headerNavConteiner}></div>
     </div>

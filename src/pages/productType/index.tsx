@@ -10,7 +10,7 @@ function ProductType() {
   }
 
   const { register, handleSubmit } = useForm();
-  // const [type, setType] = useState<IFormInput[]>([]);
+
   const { isType, setIsType } = useContext(AuthContext);
 
   const onSubmit: SubmitHandler<IFormInput> = (data: IFormInput, event: any) => {
@@ -40,8 +40,8 @@ function ProductType() {
           ></input>
           <Button type="submit">Submit</Button>
         </form>
-        {/* <CreateSelect /> */}
       </div>
+      <div style={{ padding: '50px 0' }}></div>
     </div>
   );
 }

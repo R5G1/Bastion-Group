@@ -4,7 +4,7 @@ import { AuthContext } from '../../components/Context/Context';
 import { IFormInput } from '../../components/Type/Type';
 import Button from '../../components/UI/button/Button';
 import style from '../products/index.module.scss';
-import ProductsSelect from './productsComponents/ProductsSelect';
+import ProductsSelect from '../../components/UI/productsComponents/ProductsSelect';
 
 function Products() {
   const { isType, setIsType, isArray, setisArray } = useContext(AuthContext);
@@ -38,7 +38,11 @@ function Products() {
           ></input>
 
           <select className="input" {...register('type')} required>
-            {isType.length > 0 ? ProductsSelect() : <option value="disabled">Тип не указан</option>}
+            {isType.length > 0 ? (
+              ProductsSelect()
+            ) : (
+              <option value="Тип не указан">Тип не указан</option>
+            )}
           </select>
           <input
             min={0}
@@ -62,12 +66,11 @@ function Products() {
             <option value="ГОСТ 14911-82">ГОСТ 14911-82</option>
             <option value="ОСТ 36-146-88">ОСТ 36-146-88</option>
             <option value="НТС 65-06">НТС 65-06</option>
-            <option value="ОСТ 36-146-88">ОСТ 36-146-88</option>
-            <option value="НТС 65-06">НТС 65-06</option>
           </select>
           <Button type="submit">Submit</Button>
         </form>
       </div>
+      <div style={{ padding: '50px 0' }}></div>
     </div>
   );
 }
