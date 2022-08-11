@@ -12,7 +12,7 @@ interface IFormInput {
 }
 
 function ProductsCard(): JSX.Element {
-  const { isArray, setisArray } = useContext(AuthContext);
+  const { isArray, setisArray, styleBtnSort, setStyleBtnSort } = useContext(AuthContext);
   const { isNewArray, setisNewArray } = useContext(AuthContext);
   const [count, setCount] = useState<number>(0);
 
@@ -51,8 +51,11 @@ function ProductsCard(): JSX.Element {
   }
 
   const listItems = isNewArray.map((item: IFormInput, index: number) => (
-    <div className={styles.productsCardContent} key={item.id + Math.random().toString()}>
-      <div className={styles.productsCardAction}>
+    <div
+      className={styleBtnSort ? styles.productsCardContent : styles.productsCardContentFalse}
+      key={item.id + Math.random().toString()}
+    >
+      <div className={styleBtnSort ? styles.productsCardAction : styles.productsCardActionFalse}>
         {aadhit(item.name)}
         {aadAction(item.name)}
       </div>
@@ -62,7 +65,11 @@ function ProductsCard(): JSX.Element {
       <div className={styles.productsCardName}>{item.name}</div>
       <div className={styles.productsCardType}>{item.type}</div>
       <div className={styles.productsCardPrice}>{item.price} руб.</div>
-      <div className={styles.productsCardHoverConteiner}>
+      <div
+        className={
+          styleBtnSort ? styles.productsCardHoverConteiner : styles.productsCardHoverConteinerFalse
+        }
+      >
         <div className={styles.productsCardHoverContent}>
           <p>{item.price} руб.</p>
           <div className={styles.productsCardPriceHoverInput}>
@@ -82,7 +89,13 @@ function ProductsCard(): JSX.Element {
       </div>
     </div>
   ));
-  return <div className={styles.productsCardConteiner}>{listItems}</div>;
+  return (
+    <div
+      className={styleBtnSort ? styles.productsCardConteiner : styles.productsCardConteinerFalse}
+    >
+      {listItems}
+    </div>
+  );
 }
 
 export default ProductsCard;

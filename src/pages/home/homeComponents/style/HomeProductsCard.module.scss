@@ -1,9 +1,27 @@
 .productsCardConteiner {
 
     display: flex;
+
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+
+    img {
+        margin: auto;
+    }
+}
+
+.productsCardConteinerFalse {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+
+    img {
+        margin: 0;
+    }
 
 }
 
@@ -33,10 +51,34 @@
     }
 }
 
+.productsCardContentFalse {
+    position: relative;
+    border: 1px solid #E6E6E6;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 100%;
+    width: 100%;
+    max-width: 870px;
+    background: #FFFFFF;
+    padding: 15px;
+
+    &:hover {
+        box-shadow: 0px 12px 12px 4px rgba(0, 0, 0, 0.1);
+
+        .productsCardHoverConteinerFalse {
+            display: block;
+            box-shadow: 0px 12px 12px 4px rgba(0, 0, 0, 0.1);
+        }
+
+    }
+}
+
 .productsCardImg {
-    height: 200px;
-    width: 220px;
-    margin: 0 auto;
+    max-height: 200px;
+    max-width: 220px;
+
 }
 
 .productsCardAction {
@@ -45,8 +87,16 @@
     justify-content: center;
     align-items: flex-start;
     flex-direction: column;
-    // top: 40%;
-    // left: 0;
+
+}
+
+.productsCardActionFalse {
+    position: static;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+
 }
 
 .productsCardActionName {
@@ -79,7 +129,7 @@
     font-size: 18px;
     line-height: 22px;
     color: #000000;
-    margin: 5px 0;
+    margin: 5px 5px;
 }
 
 
@@ -99,6 +149,17 @@
     width: 280px;
     padding: 0 15px;
     margin-left: -16px;
+    background: #ffffff;
+    border: 1px solid #E6E6E6;
+    border-top: none;
+}
+
+.productsCardHoverConteinerFalse {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    padding: 0 15px;
     background: #ffffff;
     border: 1px solid #E6E6E6;
     border-top: none;

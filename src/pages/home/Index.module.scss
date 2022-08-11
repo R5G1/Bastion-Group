@@ -76,17 +76,31 @@
 }
 
 .homeMenuTitleSortImgB {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 30px;
     height: 30px;
-    background: rgb(255, 1, 1);
+    transition: background 0.3s ease 0s;
     border-radius: 50px;
+
+    img {
+        background: rgb(255, 1, 1);
+    }
 }
 
 .homeMenuTitleSortImgS {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 30px;
     height: 30px;
-    background: rgb(250, 250, 250);
+    transition: background 0.3s ease 0s;
     border-radius: 50px;
+
+    img {
+        background: rgb(252, 251, 251);
+    }
 }
 
 .homeMenuTitleSortP {

@@ -11,7 +11,6 @@ function Products() {
 
   const { register, handleSubmit, setValue } = useForm<IFormInput>();
   const [type, setType] = useState<IFormInput[]>([]);
-  const [id, setId] = useState<any>([]);
 
   const onSubmit: SubmitHandler<IFormInput> = (data: IFormInput, event: any) => {
     setisArray([...isArray, data]);
@@ -22,7 +21,6 @@ function Products() {
     setisArray(newAray);
     event.target.reset();
   };
-  console.log(isArray);
 
   return (
     <div className={style.conteiner}>
@@ -75,7 +73,7 @@ function Products() {
             <option value="ОСТ 36-146-88">ОСТ 36-146-88</option>
             <option value="НТС 65-06">НТС 65-06</option>
           </select>
-          <button type="submit">Submit</button>
+          <Button type="submit">Submit</Button>
         </form>
       </div>
       <div style={{ padding: '50px 0' }}></div>
